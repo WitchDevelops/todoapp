@@ -1,0 +1,56 @@
+/* wrap the whole thing in a box */
+.main {
+    max-width: 500px;
+    width: 85%;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);
+  }
+
+  /* label styling (subheading) */
+  label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+    padding-bottom: 1rem;
+  }
+
+ /* text input box styling */
+  .lg-text-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #000;
+    display: block;
+    box-sizing: border-box;
+    font-size: 1.5rem;
+  }
+
+  /* button styling */
+  .btn-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  .btn-menu {
+    flex-basis: 32%;
+  }
+
+  .active {
+    background-color: rgb(133, 214, 172);
+  }
+
+  /* task list styling */
+  ul {
+    padding-inline-start: 0;
+  }
+  
+  ul li {
+    list-style: none;
+  }
+
+  /* media queries */
+  @media screen and (min-width: 600px) {
+    .main {
+      width: 70%;
+    }
+  }

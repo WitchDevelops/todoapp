@@ -1,0 +1,52 @@
+<div class="main">
+  <h1>To-Do List</h1>
+
+  <label for="addItemInput">What needs to be done today?</label>
+
+<!-- keyup adds an item only when the key is released, smart -->
+<!-- releasing the enter key also resets the newItem back to an empty string-->
+<input
+  #newItem
+  placeholder="add a task"
+    (keyup.enter)="addItem(newItem.value); newItem.value = ''"
+  class="lg-text-input"
+  id="addItemInput" />
+
+<!--Clicking the button also adds an item, same as enter-->
+<button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
+
+<!-- Buttons that show all, still to do, or done items on click -->
+<div class="btn-wrapper">
+  <button
+    class="btn btn-menu"
+    [class.active]="filter == 'all'"
+    (click)="filter = 'all'">
+    All
+  </button>
+
+  <button
+    class="btn btn-menu"
+    [class.active]="filter == 'active'"
+    (click)="filter = 'active'">
+    To Do
+  </button>
+
+  <button
+    class="btn btn-menu"
+    [class.active]="filter == 'done'"
+    (click)="filter = 'done'">
+    Done
+  </button>
+</div>
+
+<!-- {{xxx}} displays the length of the array-->
+<!--ngIf else decides whether to display singular "item" or plural "items"-->
+<h2>{{items.length}} <span *ngIf="items.length === 1; else moreThanOne">item</span>
+<ng-template #moreThanOne>items</ng-template></h2>
+
+<!-- *ngFor to iterate over the array of items-->
+<ul>
+  <li *ngFor="let i of items">
+    <app-item (remove)="remove(i)" [item]="i"></app-item>
+  </li>
+</ul>
